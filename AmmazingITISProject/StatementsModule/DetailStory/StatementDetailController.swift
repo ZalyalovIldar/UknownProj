@@ -29,6 +29,5 @@ class StatementDetailController: UIViewController {
 
     @IBAction func moreButtonPressed(_ sender: Any) {
         
-        
     }
 }

@@ -31,7 +31,6 @@ class CreateStatementController: UIViewController {
     var isContentSizeHeightChangedWithKeyboard = false
     var userDefaults = UserDefaults.standard
     var pickedImage: UIImage = UIImage()
-    let imagePicker = UIImagePickerController()
     
     lazy var dateFormatter: DateFormatter = {
        
@@ -62,8 +61,6 @@ class CreateStatementController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        imagePicker.delegate = self
         
         categoryTF.text = selectedCategory
         
@@ -194,45 +191,24 @@ class CreateStatementController: UIViewController {
         saveFields(cache: true)
         navigationController?.popViewController(animated: true)
     }
-    
-    //MARK: UIImagePickerControllerDelegate
-    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//
-//        if let lPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//           pickedImage = lPickedImage
-//        }
-//
-//        dismiss(animated: true, completion: nil)
-//
-//        setupKeyboardNotifications()
-//        scrollView.layoutIfNeeded()
-//    }
-    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//
-//        dismiss(animated: true, completion: nil)
-//
-//        setupKeyboardNotifications()
-//        scrollView.layoutIfNeeded()
-//    }
+
     
     //MARK: Buttons actions
     
     @IBAction func addFilesPressed(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
+
     }
     
     @IBAction func sendStatementPressed(_ sender: Any) {
         saveModel()
         saveFields(cache: false)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func didPressCancel(_ sender: Any) {
         
         saveFields(cache: false)
-        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
 }

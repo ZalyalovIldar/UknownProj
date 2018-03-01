@@ -41,6 +41,11 @@ class StatementsController: UIViewController {
         obtainSavedData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        obtainSavedData()
+    }
     
     func obtainSavedData() {
         
